@@ -21,3 +21,21 @@ MDL for neural sequence models: what is “model codelength,” really?
 Core question: MDL is conceptually perfect for LLMs, but neural nets are hard to assign honest description length. What proxies are principled?
 Math angle: Minimum description length, Bayesian marginal likelihood approximations, and what breaks in overparameterized/singular models.
 First milestone: prove a small result in a toy setting (e.g., linear predictor / n-gram) that connects NLL + parameter encoding to total codelength, then map what changes for deep nets.
+
+
+Core Hypothesis: Intelligence = efficient information encoding/compression. High-entropy (surprising, diverse) training data should force models to learn better compressions, leading to more capable models.
+Design ideas
+1. Controlled Entropy Experiments
+- High entropy: Diverse topics, rare words, novel combinations
+- Low entropy: Repetitive patterns, common phrases, predictable content
+- Fine-tune idetnical base models on each
+- Measure downstream performance on benchmarks
+
+2. Curriculum Learning by Entropy
+- Train models with increasing entropy over time
+- Or decreasing entropy (easier->harder)
+- Compare to random ordering
+
+3. RL with Information-Theoretic Rewards
+- Reward models for seeking high-entropy experiences
+- Test if this improves sample efficiency or generalization
